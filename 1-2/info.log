@@ -1,0 +1,22 @@
+{
+  metadata: AppError: JoiObjectId(...).isValid is not a function
+      at file:///D:/Boot_camp_node.js/Codes/Homeworks/Nima_Beheshtaein_hw16_maktab88/1-2/middlewares/async.js:8:18
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    status: 'error',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'JoiObjectId(...).isValid is not a function',
+  timestamp: '2023-04-02T14:43:24.647Z'
+}
+{
+  metadata: AppError: JoiObjectId(...).isValid is not a function
+      at file:///D:/Boot_camp_node.js/Codes/Homeworks/Nima_Beheshtaein_hw16_maktab88/1-2/middlewares/async.js:8:18
+      at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+    status: 'error',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'JoiObjectId(...).isValid is not a function',
+  timestamp: '2023-04-02T14:43:25.550Z'
+}
