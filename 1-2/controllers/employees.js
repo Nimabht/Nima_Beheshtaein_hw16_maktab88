@@ -20,8 +20,8 @@ export const createEmployee = async (req, res, next) => {
     return next(ex);
   }
   // Check if phone number already exists in database
-  let existingEmployee = await Employee.exists({
-    phoneNumber: value.phoneNumber,
+  let existingEmployee = await Employee.findOne({
+    phoneNumber: { $in: value.phoneNumber },
   });
   if (existingEmployee) {
     const ex = new AppError("Use another phone number.", "fail", 400);
@@ -47,8 +47,8 @@ export const updateEmployee = async (req, res, next) => {
     return next(ex);
   }
   // Check if phone number already exists in database
-  let existingEmployee = await Employee.exists({
-    phoneNumber: value.phoneNumber,
+  let existingEmployee = await Employee.findOne({
+    phoneNumber: { $in: value.phoneNumber },
     _id: { $ne: req.employee._id }, // exclude employee with specified id
   });
   if (existingEmployee) {

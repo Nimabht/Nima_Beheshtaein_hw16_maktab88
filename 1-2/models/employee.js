@@ -34,7 +34,12 @@ const employeeSchema = mongoose.Schema({
     validate: {
       validator: function (v) {
         // Check that each phone number matches the Iran phone number pattern
-        return /^(\+98|0)?9\d{9}$/.test(v);
+        for (let i = 0; i < v.length; i++) {
+          if (!/^(\+98|0)?9\d{9}$/.test(v[i])) {
+            return false;
+          }
+        }
+        return true;
       },
       message: (props) =>
         `${props.value} is not a valid Iran phone number!`,
