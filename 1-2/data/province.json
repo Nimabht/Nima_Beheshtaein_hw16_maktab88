@@ -30,6 +30,7 @@
       {"name": "Tehran"},
       {"name": "West Azerbaijan"},
       {"name": "Yazd"},
-      {"name": "Zanjan"}
+      {"name": "Zanjan"},
+      {"name": "not-set"}
    ]
 
