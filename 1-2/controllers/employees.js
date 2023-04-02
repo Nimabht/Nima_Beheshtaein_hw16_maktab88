@@ -3,7 +3,9 @@ import { Employee, validateEmployee } from "../models/employee.js";
 import AppError from "../utils/appError.js";
 
 export const getEmployees = async (req, res, next) => {
-  const employees = await Employee.find().select("-__v");
+  const employees = await Employee.find()
+    .sort({ lastname: -1 })
+    .select("-__v");
   res.send(employees);
 };
 
@@ -47,6 +49,7 @@ export const updateEmployee = async (req, res, next) => {
   // Check if phone number already exists in database
   let existingEmployee = await Employee.exists({
     phoneNumber: value.phoneNumber,
+    _id: { $ne: req.employee._id }, // exclude employee with specified id
   });
   if (existingEmployee) {
     const ex = new AppError("Use another phone number.", "fail", 400);
@@ -55,6 +58,7 @@ export const updateEmployee = async (req, res, next) => {
   // Check if numberId already exists in database
   existingEmployee = await Employee.exists({
     idNumber: value.idNumber,
+    _id: { $ne: req.employee._id }, // exclude employee with specified id
   });
   if (existingEmployee) {
     const ex = new AppError("Use another ID number.", "fail", 400);
