@@ -3,10 +3,18 @@ import { Employee, validateEmployee } from "../models/employee.js";
 import AppError from "../utils/appError.js";
 
 export const getEmployees = async (req, res, next) => {
+  const page = parseInt(req.query.page) || 1;
+  const pageSize = 6;
+
+  const skipCount = (page - 1) * pageSize;
+  const count = await Employee.count();
   const employees = await Employee.find()
     .sort({ lastname: -1 })
+    .skip(skipCount)
+    .limit(pageSize)
     .select("-__v");
-  res.send(employees);
+
+  res.send({ page: page, total: count, data: employees });
 };
 
 export const getEmployeeById = async (req, res, next) => {
