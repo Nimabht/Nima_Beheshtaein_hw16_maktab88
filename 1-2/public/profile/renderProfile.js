@@ -122,7 +122,7 @@ const renderProfile = (id) => {
               </button>
               <button
                 class="btn btn-danger py-3 px-5"
-                onclick="goToHomePage()">
+                onclick="window.location.href = '/home';">
                 Close
               </button>
             </div>
