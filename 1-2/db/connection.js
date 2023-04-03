@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
 
 mongoose
-  .connect("mongodb://localhost:27017/HW16-employee", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect("mongodb://localhost:27017/HW16-employee")
   .then(() => {
     console.log("MongoDB connected!");
   })
