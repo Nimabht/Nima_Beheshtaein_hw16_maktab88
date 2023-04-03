@@ -24,7 +24,7 @@ const renderContainer = (data, totalItems, currentPage) => {
         <td class="p-2" >${age}</td>
         <td class="p-2" >${employee.companyName}</td>
         <td class="p-2" >${employee.province}</td>
-        <td class="p-2" ><i class="bi bi-pencil-square text-primary" onclick="window.location.href = '/profile/${employee._id}';"></i></td>
+        <td class="p-2" ><i class="bi bi-person-circle text-primary" onclick="window.location.href = '/profile/${employee._id}';"></i></td>
     </tr>`);
     $("table").append(newRow);
   }

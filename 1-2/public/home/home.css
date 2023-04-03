@@ -12,6 +12,7 @@ table tr {
 
 table i {
   cursor: pointer;
+  font-size: x-large;
 }
 
 .h-90 {
