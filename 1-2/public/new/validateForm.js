@@ -16,7 +16,7 @@ function validateForm(formData) {
     },
     gender: {
       inclusion: {
-        within: ["man", "woman", "unknown", ""],
+        within: ["man", "woman", "unknown", "not-set"],
       },
     },
     dateOfBirth: {
@@ -40,7 +40,7 @@ function validateForm(formData) {
     },
     province: {
       length: {
-        minimum: 1,
+        minimum: 0,
         maximum: 50,
       },
     },
@@ -54,7 +54,8 @@ function validateForm(formData) {
     roleInCompany: {
       presence: true,
       inclusion: {
-        within: ["Employee", "Manager", ""],
+        within: ["Employee", "Manager"],
+        message: "not selected",
       },
     },
   };
