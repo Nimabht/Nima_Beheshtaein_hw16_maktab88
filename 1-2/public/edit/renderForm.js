@@ -48,11 +48,12 @@ const renderForm = (id) => {
             </div>
             <div class="form-group">
               <label for="gender">Gender:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="gender"
-                value="${gender}" />
+              <select class="form-select" id="gender">
+                <option selected></option>
+                <option value="man">Male</option>
+                <option value="woman">Female</option>
+                <option value="unknown">Unknown</option>
+            </select>
             </div>
             <div class="form-group">
               <label for="company">Company:</label>
@@ -82,19 +83,49 @@ const renderForm = (id) => {
           <div class="col-md-6">
             <div class="form-group">
               <label for="province">Province:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="province"
-                value="${province}" />
+              <select class="form-select" id="province">
+                <option value="not-set" selected>not-set</option>
+  <option value="Alborz">Alborz</option>
+  <option value="Ardabil">Ardabil</option>
+  <option value="Bushehr">Bushehr</option>
+  <option value="Chaharmahal and Bakhtiari">Chaharmahal and Bakhtiari</option>
+  <option value="East Azerbaijan">East Azerbaijan</option>
+  <option value="Isfahan">Isfahan</option>
+  <option value="Fars">Fars</option>
+  <option value="Gilan">Gilan</option>
+  <option value="Golestan">Golestan</option>
+  <option value="Hamadan">Hamadan</option>
+  <option value="Hormozgan">Hormozgan</option>
+  <option value="Ilam">Ilam</option>
+  <option value="Kerman">Kerman</option>
+  <option value="Kermanshah">Kermanshah</option>
+  <option value="Khuzestan">Khuzestan</option>
+  <option value="Kohgiluyeh and Boyer-Ahmad">Kohgiluyeh and Boyer-Ahmad</option>
+  <option value="Kurdistan">Kurdistan</option>
+  <option value="Lorestan">Lorestan</option>
+  <option value="Markazi">Markazi</option>
+  <option value="Mazandaran">Mazandaran</option>
+  <option value="North Khorasan">North Khorasan</option>
+  <option value="Qazvin">Qazvin</option>
+  <option value="Qom">Qom</option>
+  <option value="Razavi Khorasan">Razavi Khorasan</option>
+  <option value="Semnan">Semnan</option>
+  <option value="Sistan and Baluchestan">Sistan and Baluchestan</option>
+  <option value="South Khorasan">South Khorasan</option>
+  <option value="Tehran">Tehran</option>
+  <option value="West Azerbaijan">West Azerbaijan</option>
+  <option value="Yazd">Yazd</option>
+  <option value="Zanjan">Zanjan</option>
+</select>
+
             </div>
             <div class="form-group">
               <label for="role">Role in Company:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="role"
-                value="${roleInCompany}" />
+              <select class="form-select" id="role">
+                <option selected></option>
+                <option value="Employee">Employee</option>
+                <option value="Manager">Manager</option>
+            </select>
             </div>
             <div class="form-group">
               <label for="regDate">Registration Date:</label>
