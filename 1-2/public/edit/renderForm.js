@@ -49,7 +49,7 @@ const renderForm = (id) => {
             <div class="form-group">
               <label for="gender">Gender:</label>
               <select class="form-select" id="gender">
-                <option selected></option>
+                <option value="not-set" selected></option>
                 <option value="man">Male</option>
                 <option value="woman">Female</option>
                 <option value="unknown">Unknown</option>
@@ -117,7 +117,6 @@ const renderForm = (id) => {
   <option value="Yazd">Yazd</option>
   <option value="Zanjan">Zanjan</option>
 </select>
-
             </div>
             <div class="form-group">
               <label for="role">Role in Company:</label>

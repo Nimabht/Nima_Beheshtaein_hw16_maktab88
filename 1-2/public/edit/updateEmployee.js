@@ -16,7 +16,7 @@ function validateForm(formData) {
     },
     gender: {
       inclusion: {
-        within: ["man", "woman", "unknown"],
+        within: ["man", "woman", "unknown", "not-set"],
       },
     },
     dateOfBirth: {
@@ -40,7 +40,7 @@ function validateForm(formData) {
     },
     province: {
       length: {
-        minimum: 1,
+        minimum: 0,
         maximum: 50,
       },
     },
@@ -55,6 +55,7 @@ function validateForm(formData) {
       presence: true,
       inclusion: {
         within: ["Employee", "Manager"],
+        message: "not selected",
       },
     },
   };
@@ -80,17 +81,41 @@ const updateEmployee = () => {
     companyName: $("#company").val(),
     roleInCompany: $("#role").val(),
   };
+  let polipop = new Polipop("updateSection", {
+    layout: "popups",
+    insert: "before",
+    pool: 5,
+    life: 3000,
+    progressbar: true,
+  });
   const errors = validateForm(updatedEmployee);
   if (!!errors) {
-    console.log(errors);
+    for (const error in errors) {
+      polipop.add({
+        type: "error",
+        title: "Error",
+        content: errors[error],
+      });
+    }
   } else {
     axios
       .put(`/api/employee/${id}`, updatedEmployee)
       .then((response) => {
-        console.log("Updated successfully!");
+        polipop.add({
+          type: "success",
+          title: "Success",
+          content: "Updated successfully!",
+        });
+        setTimeout(() => {
+          window.location.href = `/profile/${id}`;
+        }, 3000);
       })
       .catch((error) => {
-        console.log(error.response.data.message);
+        polipop.add({
+          type: "error",
+          title: "Error",
+          content: error.response.data.message,
+        });
       });
   }
 };
