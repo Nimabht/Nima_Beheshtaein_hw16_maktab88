@@ -22,29 +22,22 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="edit.css" />
     <title>Home</title>
   </head>
   <body
     class="vh-100 d-flex flex-row justify-content-center align-items-center">
     <div
-      class="container w-75 h-80 bg-light rounded-5 d-flex flex-column align-items-center">
-      <p class="display-4 my-3"><b>Employees</b></p>
-      <table class="table w-90 shadow"></table>
-      <button
-        class="btn btn-success mb-3 px-lg-5"
-        onclick="window.location.href = '/new';">
-        New
-      </button>
-      <nav aria-label="Page navigation example ">
-        <ul class="pagination"></ul>
-      </nav>
-    </div>
+      class="container w-75 h-75 bg-light rounded-5 d-flex flex-column align-items-center"></div>
   </body>
   <script
     src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
-  <script src="renderContainer.js"></script>
-  <script src="home.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="updateEmployee.js"></script>
+  <script src="deleteEmployee.js"></script>
+  <script src="renderForm.js"></script>
+  <script src="edit.js"></script>
 </html>

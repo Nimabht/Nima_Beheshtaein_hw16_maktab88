@@ -5,36 +5,3 @@ body {
   background-size: cover;
   font-family: "Roboto", sans-serif;
 }
-
-table tr {
-  transition: all 0.2s ease-in-out;
-}
-
-table i {
-  cursor: pointer;
-  font-size: x-large;
-}
-
-.h-90 {
-  height: 90%;
-}
-
-.h-80 {
-  height: 80%;
-}
-
-.w-90 {
-  width: 90%;
-}
-
-.hover {
-  background-color: #c5c5c5ef !important;
-}
-
-.pagination li {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.pagination li:hover {
-  box-shadow: 0px 0px 6px -1px #0dcaf0;
-}

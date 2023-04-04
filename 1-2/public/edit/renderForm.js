@@ -1,5 +1,4 @@
-const renderProfile = (id) => {
-  console.log(id);
+const renderForm = (id) => {
   $.ajax({
     url: `/api/employee/${id}`,
     type: "GET",
@@ -18,8 +17,8 @@ const renderProfile = (id) => {
         registrationDate,
         _id,
       } = response;
-      console.log(registrationDate);
-      $(".container").html(` <h2 class="my-3">User Profile</h2>
+      $(".container")
+        .html(` <p class="display-4 my-2"><b>Edit profile</b></p>
       <div class="container center">
         <div class="row mt-3">
           <div class="col-md-6">
@@ -29,8 +28,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="firstname"
-                value="${firstname}"
-                readonly />
+                value="${firstname}" />
             </div>
             <div class="form-group">
               <label for="lastname">Last Name:</label>
@@ -38,8 +36,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="lastname"
-                value="${lastname}"
-                readonly />
+                value="${lastname}" />
             </div>
             <div class="form-group">
               <label for="dob">Date of Birth:</label>
@@ -47,8 +44,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="dateOfBirth"
-                value="${dateOfBirth.substring(0, 10)}"
-                readonly />
+                value="${dateOfBirth.substring(0, 10)}" />
             </div>
             <div class="form-group">
               <label for="gender">Gender:</label>
@@ -56,8 +52,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="gender"
-                value="${gender}"
-                readonly />
+                value="${gender}" />
             </div>
             <div class="form-group">
               <label for="company">Company:</label>
@@ -65,8 +60,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="company"
-                value="${companyName}"
-                readonly />
+                value="${companyName}" />
             </div>
             <div class="form-group">
               <label for="idNumber">ID Number:</label>
@@ -74,8 +68,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="idNumber"
-                value="${idNumber}"
-                readonly />
+                value="${idNumber}" />
             </div>
             <div class="form-group">
               <label for="phoneNumber">Phone Number:</label>
@@ -83,8 +76,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="phoneNumber"
-                value="${phoneNumber}"
-                readonly />
+                value="${phoneNumber}" />
             </div>
           </div>
           <div class="col-md-6">
@@ -94,8 +86,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="province"
-                value="${province}"
-                readonly />
+                value="${province}" />
             </div>
             <div class="form-group">
               <label for="role">Role in Company:</label>
@@ -103,8 +94,7 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="role"
-                value="${roleInCompany}"
-                readonly />
+                value="${roleInCompany}" />
             </div>
             <div class="form-group">
               <label for="regDate">Registration Date:</label>
@@ -112,28 +102,32 @@ const renderProfile = (id) => {
                 type="text"
                 class="form-control"
                 id="regDate"
-                value="${registrationDate.substring(0, 10)}"
-                readonly />
+                value="${registrationDate.substring(0, 10)}" 
+                readonly/>
             </div>
             <div
-              class="form-group d-flex justify-content-center align-items-center h-75 gap-5">
+              class="form-group d-flex justify-content-center align-items-center h-50 gap-3">
               <button
-                class="btn btn-primary py-3 px-5"
-                onclick="window.location.href = '/edit/${_id}';">
-                Edit
+                class="btn btn-success py-3 px-5"
+                id="submit-btn"
+                onclick="updateEmployee()">
+                Submit
               </button>
               <button
                 class="btn btn-danger py-3 px-5"
-                onclick="window.location.href = '/home';">
+                id="delete-btn"
+                onclick="deleteEmployee()">
+                Delete
+              </button>
+              <button
+                class="btn btn-warning py-3 px-5"
+                onclick="window.location.href = '/profile/${_id}';">
                 Close
               </button>
             </div>
           </div>
         </div>
       </div>`);
-    },
-    error: function (error) {
-      console.log(error);
     },
   });
 };

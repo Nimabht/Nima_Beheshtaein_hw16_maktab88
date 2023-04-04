@@ -28,6 +28,16 @@ app.get("/profile/:id", (req, res) => {
   res.sendFile(filePath);
 });
 
+app.get("/edit/:id", (req, res) => {
+  const filePath = join(__dirname, "views", "edit.html");
+  res.sendFile(filePath);
+});
+
+app.get("/new", (req, res) => {
+  const filePath = join(__dirname, "views", "new.html");
+  res.sendFile(filePath);
+});
+
 app.use(globalErrorHandler);
 
 const port = process.env.PORT || 3000;
