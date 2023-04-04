@@ -12,17 +12,41 @@ $(() => {
       companyName: $("#company").val(),
       roleInCompany: $("#role").val(),
     };
+    let polipop = new Polipop("newSection", {
+      layout: "popups",
+      insert: "before",
+      pool: 5,
+      life: 3000,
+      progressbar: true,
+    });
     const errors = validateForm(newEmployee);
     if (!!errors) {
-      console.log(errors);
+      for (const error in errors) {
+        polipop.add({
+          type: "error",
+          title: "Error",
+          content: errors[error],
+        });
+      }
     } else {
       axios
         .post("/api/employee", newEmployee)
         .then((response) => {
-          console.log(response);
+          polipop.add({
+            type: "success",
+            title: "Success",
+            content: "Created successfully!",
+          });
+          setTimeout(() => {
+            window.location.href = `/home`;
+          }, 3000);
         })
         .catch((error) => {
-          console.log(error.response.data.message);
+          polipop.add({
+            type: "error",
+            title: "Error",
+            content: error.response.data.message,
+          });
         });
     }
   });
