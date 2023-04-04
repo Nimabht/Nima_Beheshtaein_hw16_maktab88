@@ -21,7 +21,7 @@ const employeeSchema = mongoose.Schema({
   },
   gender: {
     type: String,
-    enum: ["man", "woman", "unknown"],
+    enum: ["man", "woman", "unknown", "not-set"],
     default: "not-set",
   },
   dateOfBirth: {
