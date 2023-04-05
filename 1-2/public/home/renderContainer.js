@@ -1,4 +1,9 @@
-const renderContainer = (data, totalItems, currentPage) => {
+const renderContainer = (
+  data,
+  totalItems,
+  currentPage,
+  searchQuery
+) => {
   //Table part
   $("table").html(`<thead class="table-primary">
           <tr class="p-2">
@@ -54,7 +59,7 @@ const renderContainer = (data, totalItems, currentPage) => {
   $(".page-link").on("click", function () {
     const page = this.id;
     $.ajax({
-      url: `/api/employee/?page=${page}`,
+      url: `/api/employee/?page=${page}&${searchQuery}`,
       type: "GET",
       dataType: "json",
       success: function (response) {
