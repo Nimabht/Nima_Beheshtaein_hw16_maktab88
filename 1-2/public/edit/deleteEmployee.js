@@ -1,14 +1,30 @@
 const deleteEmployee = () => {
+  let polipop = new Polipop("updateSection", {
+    layout: "popups",
+    insert: "before",
+    pool: 5,
+    life: 3000,
+    progressbar: true,
+  });
   let url = window.location.href;
   let id = url.match(/edit\/(.*)/)[1];
-  $.ajax({
-    url: `/api/employee/${id}`,
-    method: "DELETE",
-    success: function (response) {
-      console.log("Request deleted successfully!");
-    },
-    error: function (xhr, status, error) {
-      console.error("Error deleting request: " + error);
-    },
-  });
+  axios
+    .delete(`/api/employee/${id}`)
+    .then((_response) => {
+      polipop.add({
+        type: "info",
+        title: "Deleted!",
+        content: "Employee deleted successfully!",
+      });
+      setTimeout(() => {
+        window.location.href = `/home`;
+      }, 3000);
+    })
+    .catch((_error) => {
+      polipop.add({
+        type: "error",
+        title: "Error",
+        content: "Something is wrong!!!",
+      });
+    });
 };
