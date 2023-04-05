@@ -1,22 +1,17 @@
 const renderForm = (id) => {
-  $.ajax({
-    url: `/api/employee/${id}`,
-    type: "GET",
-    dataType: "json",
-    success: function (response) {
+  axios
+    .get(`/api/employee/${id}`)
+    .then((response) => {
       const {
         firstname,
         lastname,
         dateOfBirth,
-        gender,
         companyName,
         idNumber,
         phoneNumber,
-        province,
-        roleInCompany,
         registrationDate,
         _id,
-      } = response;
+      } = response.data;
       $(".container")
         .html(` <p class="display-4 my-2"><b>Edit profile</b></p>
       <div class="container center">
@@ -158,6 +153,8 @@ const renderForm = (id) => {
           </div>
         </div>
       </div>`);
-    },
-  });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
