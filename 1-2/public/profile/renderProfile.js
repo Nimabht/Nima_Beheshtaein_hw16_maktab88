@@ -1,9 +1,7 @@
 const renderProfile = (id) => {
-  $.ajax({
-    url: `/api/employee/${id}`,
-    type: "GET",
-    dataType: "json",
-    success: function (response) {
+  axios
+    .get(`/api/employee/${id}`)
+    .then((response) => {
       const {
         firstname,
         lastname,
@@ -16,7 +14,7 @@ const renderProfile = (id) => {
         roleInCompany,
         registrationDate,
         _id,
-      } = response;
+      } = response.data;
       $(".container").html(` <h2 class="my-3">User Profile</h2>
       <div class="container center">
         <div class="row mt-3">
@@ -129,9 +127,8 @@ const renderProfile = (id) => {
           </div>
         </div>
       </div>`);
-    },
-    error: function (error) {
+    })
+    .catch((error) => {
       console.log(error);
-    },
-  });
+    });
 };
