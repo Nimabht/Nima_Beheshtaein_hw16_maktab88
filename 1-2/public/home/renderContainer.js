@@ -58,17 +58,14 @@ const renderContainer = (
   }
   $(".page-link").on("click", function () {
     const page = this.id;
-    $.ajax({
-      url: `/api/employee/?page=${page}&${searchQuery}`,
-      type: "GET",
-      dataType: "json",
-      success: function (response) {
-        const employees = response.data;
-        renderContainer(employees, response.total, Number(page));
-      },
-      error: function (error) {
+    axios
+      .get(`/api/employee/?page=${page}&${searchQuery}`)
+      .then((response) => {
+        const employees = response.data.data;
+        renderContainer(employees, response.data.total, Number(page));
+      })
+      .catch((error) => {
         console.log(error);
-      },
-    });
+      });
   });
 };
