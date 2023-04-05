@@ -1,14 +1,11 @@
 $(() => {
-  $.ajax({
-    url: `/api/employee/?page=1}`,
-    type: "GET",
-    dataType: "json",
-    success: function (response) {
-      const employees = response.data;
-      renderContainer(employees, response.total, 1);
-    },
-    error: function (error) {
+  axios
+    .get(`/api/employee`)
+    .then((response) => {
+      const employees = response.data.data;
+      renderContainer(employees, response.data.total, 1);
+    })
+    .catch((error) => {
       console.log(error);
-    },
-  });
+    });
 });
