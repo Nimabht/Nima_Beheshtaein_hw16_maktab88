@@ -64,7 +64,6 @@ const renderContainer = (
       dataType: "json",
       success: function (response) {
         const employees = response.data;
-        console.log(page);
         renderContainer(employees, response.total, Number(page));
       },
       error: function (error) {

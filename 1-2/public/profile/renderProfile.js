@@ -1,5 +1,4 @@
 const renderProfile = (id) => {
-  console.log(id);
   $.ajax({
     url: `/api/employee/${id}`,
     type: "GET",
@@ -18,7 +17,6 @@ const renderProfile = (id) => {
         registrationDate,
         _id,
       } = response;
-      console.log(registrationDate);
       $(".container").html(` <h2 class="my-3">User Profile</h2>
       <div class="container center">
         <div class="row mt-3">
