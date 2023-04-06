@@ -58,11 +58,17 @@ const renderContainer = (
   }
   $(".page-link").on("click", function () {
     const page = this.id;
+    console.log(searchQuery);
     axios
       .get(`/api/employee/?page=${page}&${searchQuery}`)
       .then((response) => {
         const employees = response.data.data;
-        renderContainer(employees, response.data.total, Number(page));
+        renderContainer(
+          employees,
+          response.data.total,
+          Number(page),
+          searchQuery
+        );
       })
       .catch((error) => {
         console.log(error);
